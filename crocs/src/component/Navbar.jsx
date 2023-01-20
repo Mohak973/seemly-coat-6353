@@ -37,11 +37,11 @@ function Navbar() {
             borderBottom={1}
             borderStyle={'solid'}
             borderColor={useColorModeValue('gray.200', 'gray.900')}
-            align={'center'}>
+            align={'center'} >
             <Flex
               flex={{ base: 1, md: 'auto' }}
               ml={{ base: -2 }}
-              display={{ base: 'flex', md: 'none' }}>
+              display={{ base: 'flex', md: 'none' }} >
               <IconButton
                 onClick={onToggle}
                 icon={
@@ -51,7 +51,7 @@ function Navbar() {
                 aria-label={'Toggle Navigation'}
               />
             </Flex>
-            <Flex   flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
+            <Flex   flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} >
               {/* <Text
                 textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
                 fontFamily={'heading'}
@@ -60,7 +60,7 @@ function Navbar() {
               </Text> */}
               <Image  border="1px" textAlign={useBreakpointValue({ base: 'center', md: 'left' })} w="180px" src="https://www.crocs.com/on/demandware.static/Sites-crocs_us-Site/-/default/dw3ce21b1f/images/logo-no-tag.svg"/>
     
-              <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+              <Flex display={{ base: 'none', md: 'flex' }} ml={10}  >
                 <DesktopNav />
               </Flex>
             </Flex>
@@ -93,7 +93,7 @@ function Navbar() {
             </Stack>
           </Flex>
     
-          <Collapse in={isOpen} animateOpacity>
+          <Collapse in={isOpen} animateOpacity >
             <MobileNav />
           </Collapse>
         </Box>
@@ -108,7 +108,7 @@ function Navbar() {
       return (
         <Stack direction={'row'} spacing={4} >
           {NAV_ITEMS.map((navItem) => (
-            <Box key={navItem.label}>
+            <Box key={navItem.label} >
               <Popover trigger={'hover'} placement={'bottom-start'}>
                 <PopoverTrigger>
                   <Link
@@ -132,8 +132,8 @@ function Navbar() {
                     bg={popoverContentBgColor}
                     p={4}
                     rounded={'xl'}
-                    minW={'sm'}>
-                    <Stack direction="column" >
+                    minW='xl'  display='grid'>
+                    <Stack direction="column" border='1px'>
                         
                       {navItem.children.map((child) => (
                         <DesktopSubNav key={child.label} {...child} />
@@ -150,7 +150,7 @@ function Navbar() {
     
     const DesktopSubNav = ({ label, href, subLabel,icon,trending,image}: NavItem) => {
       return (
-        <Stack direction='row' >
+        <Stack direction='row' border='1px'>
             <Link
           href={href}
           role={'individual'}
@@ -159,8 +159,8 @@ function Navbar() {
           rounded={'md'}
           >
            
-            <Stack direction='column' align={'left'} h="30px" >
-            <Box display="flex">
+            <Stack direction='column' align={'left'} h="30px" w='200px'  border='1px'>
+            <Box display="flex" border='1px'>
             <Image src={icon} w="30px"></Image>
               <Text
                 transition={'all .3s ease'}
@@ -183,6 +183,7 @@ function Navbar() {
             </Flex>
           </Stack>
         </Link>
+        <Stack >
         <Link href={href}
           role={'individual'}
           display={'block'}
@@ -192,9 +193,13 @@ function Navbar() {
 
            
         </Link>
-        <Stack direction='row'>
-            <Image src={image}></Image>
         </Stack>
+        <Stack >
+            <Image  src={image} />
+        </Stack>
+        
+       
+        
 
         </Stack>
         
