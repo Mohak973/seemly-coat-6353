@@ -1,0 +1,16 @@
+.slick-slide > div {
+    margin: 0 10px;
+  }
+  .slick-list {
+    margin: 0 -10px;
+  }
+  .Hcrousel{
+    width:"100%";
+    margin:0 auto;
+    
+  }
+  .container{
+    background-color: #ccc;
+   
+    
+  }
