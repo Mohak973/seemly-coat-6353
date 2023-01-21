@@ -27,7 +27,7 @@ import {Image,
 function Navbar() {
     const { isOpen, onToggle } = useDisclosure();
     return (
-        <Box>
+        <Box w='100%' border='1px'>
           <Flex
             bg={useColorModeValue('white', 'gray.800')}
             color={useColorModeValue('gray.600', 'white')}
