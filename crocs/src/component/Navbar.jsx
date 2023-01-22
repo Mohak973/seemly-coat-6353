@@ -72,11 +72,12 @@ function Navbar() {
               direction={'row'}
               spacing={6}>
               <Button
+              onClick={()=>navigate("/Signin")}
                 as={'a'}
                 fontSize={'sm'}
                 fontWeight={400}
                 variant={'link'}
-                href={'/Signin'}>
+                >
                 Sign In
               </Button>
               <Button
