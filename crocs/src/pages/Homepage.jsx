@@ -61,7 +61,7 @@ function Homepage() {
                 <Image src='https://cdn.iconscout.com/icon/free/png-256/google-166-189830.png?w=256&f=avif' w='100px'></Image>
             </Stack>
         </Box>
-        <Footer />
+       
     </Box>
    </Box>
   )

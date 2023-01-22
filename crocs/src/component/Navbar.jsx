@@ -22,9 +22,10 @@ import {Image,
     ChevronDownIcon,
     ChevronRightIcon,
   } from '@chakra-ui/icons';
-  
+  import { useParams,useNavigate } from "react-router-dom";
 
 function Navbar() {
+    const navigate=useNavigate()
     const { isOpen, onToggle } = useDisclosure();
     return (
         <Box w='100%' border='1px'>
@@ -58,7 +59,7 @@ function Navbar() {
                 color={useColorModeValue('gray.800', 'white')}>
                 Logo
               </Text> */}
-              <Image  border="1px" textAlign={useBreakpointValue({ base: 'center', md: 'left' })} w="180px" src="https://www.crocs.com/on/demandware.static/Sites-crocs_us-Site/-/default/dw3ce21b1f/images/logo-no-tag.svg"/>
+              <Image   textAlign={useBreakpointValue({ base: 'center', md: 'left' })} w="180px" src="https://www.crocs.com/on/demandware.static/Sites-crocs_us-Site/-/default/dw3ce21b1f/images/logo-no-tag.svg"/>
     
               <Flex display={{ base: 'none', md: 'flex' }} ml={10}  >
                 <DesktopNav />
@@ -75,16 +76,17 @@ function Navbar() {
                 fontSize={'sm'}
                 fontWeight={400}
                 variant={'link'}
-                href={'#'}>
+                href={'/Signin'}>
                 Sign In
               </Button>
               <Button
+              onClick={()=>navigate("/Signup")}
                 display={{ base: 'none', md: 'inline-flex' }}
                 fontSize={'sm'}
                 fontWeight={600}
                 color={'white'}
                 bg={'pink.400'}
-                href={'#'}
+                href={''}
                 _hover={{
                   bg: 'pink.300',
                 }}>
@@ -113,7 +115,7 @@ function Navbar() {
                 <PopoverTrigger>
                   <Link
                     p={2}
-                    href={navItem.href ?? '#'}
+                    href={navItem.href}
                     fontSize={'sm'}
                     fontWeight={500}
                     color={linkColor}
@@ -133,7 +135,7 @@ function Navbar() {
                     p={4}
                     rounded={'xl'}
                     minW='xl'  display='grid'>
-                    <Stack direction="column" border='1px'>
+                    <Stack direction="column" >
                         
                       {navItem.children.map((child) => (
                         <DesktopSubNav key={child.label} {...child} />
@@ -150,7 +152,7 @@ function Navbar() {
     
     const DesktopSubNav = ({ label, href, subLabel,icon,trending,image}: NavItem) => {
       return (
-        <Stack direction='row' border='1px'>
+        <Stack direction='row' >
             <Link
           href={href}
           role={'individual'}
@@ -159,8 +161,8 @@ function Navbar() {
           rounded={'md'}
           >
            
-            <Stack direction='column' align={'left'} h="30px" w='200px'  border='1px'>
-            <Box display="flex" border='1px'>
+            <Stack direction='column' align={'left'} h="30px" w='200px'  >
+            <Box display="flex">
             <Image src={icon} w="30px"></Image>
               <Text
                 transition={'all .3s ease'}
@@ -280,11 +282,12 @@ function Navbar() {
     const NAV_ITEMS: Array<NavItem> = [
       {
         label: 'Women',
+        href:'/Women',
         children: [
           {
             label: 'Clogs',
             subLabel: 'Trending Design to inspire you',
-            href: '#',
+            href: '/Women',
             icon:"https://cdn-icons-png.flaticon.com/128/4187/4187487.png",
             trending:"Valentine Day",
             image:"https://media.crocs.com/images/f_auto,q_auto/marketing/2022-05-09-WomensSandalsUpdate-MegaMenu-sandal/Crocs"
@@ -292,7 +295,7 @@ function Navbar() {
           {
             label: 'Boots',
             subLabel: 'Up-and-coming Designers',
-            href: '#',
+            href: '/Women',
             icon:"https://t4.ftcdn.net/jpg/02/34/52/75/240_F_234527509_RCzmzLdblvvDyTbMQhRFzRASqxLfyIxF.jpg",
             trending:"Limited Series",
             image:"https://media.crocs.com/images/f_auto,q_auto/marketing/2022-05-09-WomensSandalsUpdate-MegaMenu-work/Crocs"
@@ -300,14 +303,14 @@ function Navbar() {
           {
             label: 'Sandals',
             subLabel: 'Up-and-coming Designers',
-            href: '#',
+            href: '/Women',
             icon:"https://t4.ftcdn.net/jpg/02/34/52/75/240_F_234527509_RCzmzLdblvvDyTbMQhRFzRASqxLfyIxF.jpg",
             trending:"Classics"
           },
           {
             label: 'Flip-Flops',
             subLabel: 'Up-and-coming Designers',
-            href: '#',
+            href: '/Women',
             icon:"https://t4.ftcdn.net/jpg/02/34/52/75/240_F_234527509_RCzmzLdblvvDyTbMQhRFzRASqxLfyIxF.jpg",
             trending:"Animal Print"
           },
@@ -322,7 +325,7 @@ function Navbar() {
         ],
       },
       {
-        label: 'Find Work',
+        label: 'Men',
         children: [
           {
             label: 'Job Board',
@@ -337,11 +340,11 @@ function Navbar() {
         ],
       },
       {
-        label: 'Learn Design',
+        label: 'Children',
         href: '#',
       },
       {
-        label: 'Hire Designers',
+        label: 'Exclusive',
         href: '#',
       },
     ];

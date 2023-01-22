@@ -94,7 +94,7 @@ function Hcrousel(){
     
           
            {cards.map((el)=>(
-            <Link>
+            <Link href="/Women">
                  <SimpleGrid w={{lg:'100%'}}>
                 <img src={el.image} alt={el.text} style={{width:"300px"}}/>
                 <h1>{el.title}</h1>
