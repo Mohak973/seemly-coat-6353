@@ -5,13 +5,13 @@ import {NavLink} from "react-router-dom"
 
 
 const getdata=()=>{
-    return fetch("http://localhost:8080/Women").then((res)=>res.json())
+    return fetch("https://croc-database.vercel.app/Women").then((res)=>res.json())
 }
 function Women() {
 
     const [data,setdata]=React.useState([]);
     const [sort,setsort]=React.useState("");
-   const [load,setload]=React.useState("")
+   const [load,setload]=React.useState("");
 
     React.useEffect(()=>{
         getdata().then((res)=>{
