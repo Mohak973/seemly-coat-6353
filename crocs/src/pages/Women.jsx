@@ -11,7 +11,7 @@ function Women() {
 
     const [data,setdata]=React.useState([]);
     const [sort,setsort]=React.useState("");
-   const [load,setload]=React.useState("")
+   const [load,setload]=React.useState("");
 
     React.useEffect(()=>{
         getdata().then((res)=>{
