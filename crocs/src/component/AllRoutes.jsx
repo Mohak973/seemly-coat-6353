@@ -11,16 +11,16 @@ function AllRoutes() {
   
   return (
     <div>
-      <HashRouter>
-        <Routes>
+      <Routes>
+        
             <Route path='/' element={<Homepage />}></Route>
             <Route path="/Women" element={<Women />} />
             <Route path="/Women/:id" element={<Singlepage />}></Route>
             <Route path='/Cartpage/:id' element={<Cartpage />}></Route>
            <Route path="/Signin" element={<Signin />}></Route>
            <Route path='/Signup' element={<Signup />}></Route>
-        </Routes>
-        </HashRouter>
+        
+           </Routes>
     </div>
   )
 }

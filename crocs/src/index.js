@@ -4,18 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ChakraProvider } from '@chakra-ui/react';
-import {BrowserRouter,HashRouter} from "react-router-dom"
+import {BrowserRouter} from "react-router-dom"
 import AuthContextProvider from './Context/AuthContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AuthContextProvider>
- <HashRouter>
+ <BrowserRouter>
   <ChakraProvider>
    <React.StrictMode>
     <App />
   </React.StrictMode>
   </ChakraProvider>
-  </HashRouter>
+  </BrowserRouter>
   </AuthContextProvider>
 );
 
