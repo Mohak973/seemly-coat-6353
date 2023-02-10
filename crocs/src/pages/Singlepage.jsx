@@ -8,7 +8,7 @@ function Singlepage() {
     const [value, setValue] = React.useState('5')
     const navigate=useNavigate()
     useEffect(()=>{
-     fetch(`http://localhost:8080/Women/${id}`).then((res)=>res.json()).then((res)=>{
+     fetch(`https://croc-database.vercel.app/Women/${id}`).then((res)=>res.json()).then((res)=>{
         setdetail(res)
      })
     },[])
