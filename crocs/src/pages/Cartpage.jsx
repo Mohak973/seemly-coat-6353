@@ -10,10 +10,13 @@ function Cartpage() {
     const shipping=99
     const [checkout,setcheckout]=React.useState({})
     React.useEffect(()=>{
-        fetch(`http://localhost:8080/Women/${id}`).then((res)=>res.json()).then((res)=>{
+        fetch(`https://croc-database.vercel.app/Women/${id}`).then((res)=>res.json()).then((res)=>{
             setcheckout(res)
         })
     },[])
+    const handlecart=()=>{}
+    alert("Ordered successfully")
+    navigate("/")
   
   return (
     <Box mb='100px'>
@@ -37,7 +40,7 @@ function Cartpage() {
                 <Input placeholder='Enter Mobile Number'></Input>
                 <Input placeholder='Enter Email'></Input>
                 <Input placeholder='Enter Address'></Input>
-                <Button onClick={()=>navigate("/")}>Checkout</Button>
+                <Button onClick={handlecart}>Checkout</Button>
                 </Box>
                
             </Box>

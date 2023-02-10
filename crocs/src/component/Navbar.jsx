@@ -59,7 +59,10 @@ function Navbar() {
                 color={useColorModeValue('gray.800', 'white')}>
                 Logo
               </Text> */}
+              <Link href='/'>
               <Image   textAlign={useBreakpointValue({ base: 'center', md: 'left' })} w="180px" src="https://www.crocs.com/on/demandware.static/Sites-crocs_us-Site/-/default/dw3ce21b1f/images/logo-no-tag.svg"/>
+              </Link>
+              
     
               <Flex display={{ base: 'none', md: 'flex' }} ml={10}  >
                 <DesktopNav />
