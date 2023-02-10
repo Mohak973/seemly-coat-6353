@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route,Routes} from 'react-router-dom'
+import {Route,Routes,HashRouter} from 'react-router-dom'
 import Cartpage from '../pages/Cartpage'
 
 import Homepage from '../pages/Homepage'
@@ -11,6 +11,7 @@ function AllRoutes() {
   
   return (
     <div>
+      <HashRouter>
         <Routes>
             <Route path='/' element={<Homepage />}></Route>
             <Route path="/Women" element={<Women />} />
@@ -19,6 +20,7 @@ function AllRoutes() {
            <Route path="/Signin" element={<Signin />}></Route>
            <Route path='/Signup' element={<Signup />}></Route>
         </Routes>
+        </HashRouter>
     </div>
   )
 }
