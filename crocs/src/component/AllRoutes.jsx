@@ -8,6 +8,7 @@ import Signup from '../pages/Signup'
 import Singlepage from '../pages/Singlepage'
 import Women from '../pages/Women'
 function AllRoutes() {
+  
   return (
     <div>
         <Routes>
