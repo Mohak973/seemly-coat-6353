@@ -16,7 +16,7 @@ function AllRoutes() {
             <Route path='/' element={<Homepage />}></Route>
             <Route path="/Women" element={<Women />} />
             <Route path="/Women/:id" element={<Singlepage />}></Route>
-            <Route path='/Cartpage/:id' element={<Cartpage />}></Route>
+            <Route path='/Cartpage' element={<Cartpage />}></Route>
            <Route path="/Signin" element={<Signin />}></Route>
            <Route path='/Signup' element={<Signup />}></Route>
         

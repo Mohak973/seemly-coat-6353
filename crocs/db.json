@@ -143,8 +143,8 @@
       "price": "170"
     }
   ],
-  "cred": {
+  "cred": [{
     "Email": "er.mohak97@gmail.com",
     "Password": "12345"
-  }
+  }]
 }

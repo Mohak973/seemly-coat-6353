@@ -23,12 +23,27 @@ import {Image,
     ChevronRightIcon,
   } from '@chakra-ui/icons';
   import { useParams,useNavigate } from "react-router-dom";
+  import {useContext} from "react"
+  import { AuthContext } from '../Context/AuthContext';
+import { jsx } from '@emotion/react';
 
 function Navbar() {
+  const {authState,signup}=useContext(AuthContext)
+  const {cart}=authState
+  let isAuth=JSON.parse(localStorage.getItem("isAuth"))
+  let Email=JSON.parse(localStorage.getItem("email"))
+  // console.log(cart)
     const navigate=useNavigate()
     const { isOpen, onToggle } = useDisclosure();
+    const gocart=()=>{
+      if(authState.isAuth){
+        navigate("/cartpage")
+      }else{
+        alert("Login First")
+      }
+    }
     return (
-        <Box w='100%' border='1px'>
+        <Box w={{lg:'100%',base:'100%'}} border='1px'>
           <Flex
             bg={useColorModeValue('white', 'gray.800')}
             color={useColorModeValue('gray.600', 'white')}
@@ -68,8 +83,11 @@ function Navbar() {
                 <DesktopNav />
               </Flex>
             </Flex>
-    
-            <Stack
+            {isAuth ?<Stack direction={'row'}><Text>{
+              `Hello, ${Email}` }
+              </Text>
+              <Box><Link href='/Cartpage'> <Image  width='30px' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXMe8zNDZDDQLi_l0tU0wCCHrstXIQBpDh7TM-_f-8&s"></Image></Link></Box>
+              </Stack>:  <Stack
               flex={{ base: 1, md: 0 }}
               justify={'flex-end'}
               direction={'row'}
@@ -96,7 +114,12 @@ function Navbar() {
                 }}>
                 Sign Up
               </Button>
-            </Stack>
+              <Button onClick={gocart}> <Image  width='30px' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXMe8zNDZDDQLi_l0tU0wCCHrstXIQBpDh7TM-_f-8&s"></Image></Button>
+             
+             
+            </Stack>}
+
+           
           </Flex>
     
           <Collapse in={isOpen} animateOpacity >

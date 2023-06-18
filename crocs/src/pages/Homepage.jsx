@@ -1,9 +1,6 @@
 import React from 'react'
 import {Box,Image,Text,Button, SimpleGrid,Link,Stack} from '@chakra-ui/react'
 import Hcrousel from '../component/Hcrousel'
-import Footer from '../component/Footer'
-
-
 
 function Homepage() {
 
@@ -11,8 +8,8 @@ function Homepage() {
     'https://static.pxlecdn.com/photos/415402355/original/f73bc06a1a50f10ab397.jpg','https://static.pxlecdn.com/photos/467402789/original/2da0d835f8ef0d362c4f.jpg','https://static.pxlecdn.com/photos/418974574/original/8eab0ed70f41f5999fd1.jpg']
 
       return (
-   <Box margi='0' w='100%'>
-      <Box position='relative' border='1px' backgroundColor='#A954B5' w="100%" margin='0px'>
+   <Box margin='auto' width={{base:'100%',md:'100%'}} border='3px solid red'>
+      <Box position='relative'  backgroundColor='#A954B5' w={{sm:'140%',md:"20%",lg:'100%'}} margin='0px' border='1px solid red'>
         <Box pos='absolute' top={{sm:'135px',md:'210px',lg:'350px'}} left={{sm:"20px",md:"80px",lg:'145px'}}>
         
        <Button size={{sm:"sm",lg:'lg'}}>Shop Platform Styled</Button>
@@ -37,16 +34,16 @@ function Homepage() {
       <Hcrousel />
 
       </Box>
-      <Box mb='30px'>
+      <Box marginBottom='30px' border="2px solid yellow" margin='auto' width={{sm:'90%',md:'90%',lg:'100%'}} >
         <Link>
-        <Image src="https://i.ibb.co/H74tsGB/Screenshot-20230120-195833.png" w={{lg:"93%",sm:"87%"}} ml={{lg:"50px",sm:'40px'}}></Image>
+        <Image src="https://i.ibb.co/H74tsGB/Screenshot-20230120-195833.png"  w={{lg:"93%",sm:"87%",md:'70%'}}  ml={{lg:"50px",sm:'40px'}}></Image>
         </Link>
         
       </Box>
-      <Box mb='30px'>
+      <Box border="2px solid yellow" mb='30px' mt='30px'>
          <Image src='https://i.ibb.co/KGTsD4t/Screenshot-20230120-203359.png' w={{lg:"93%",sm:"87%"}} ml={{lg:"50px",sm:'40px'}}></Image>
       </Box>
-          <SimpleGrid gridTemplateColumns={{lg:"repeat(4,1fr)",sm:"repeat(1,1fr)"}}  mb='30px' ml={{lg:"54px",sm:'100px'}} gap='10px'>
+          <SimpleGrid gridTemplateColumns={{lg:"repeat(4,1fr)",sm:"repeat(1,1fr)"}}  mb='30px' ml={{lg:"54px",sm:'100px',base:'70px'}} gap='10px'>
             {photos.map((el)=>(
                 <Box>
                     <Image src={el} height='310px'></Image>
@@ -58,7 +55,7 @@ function Homepage() {
             <Stack direction='row' ml='40px'>
                 <Button w='150px' backgroundColor='black' color='white' _hover={{color:'#ccc'}} >SignUp For Free</Button>
                 <Text>Download Crocs App</Text>
-                <Image src='https://cdn.iconscout.com/icon/free/png-256/google-166-189830.png?w=256&f=avif' w='100px'></Image>
+                <Image src='https://cdn.iconscout.com/icon/free/png-256/google-166-189830.png?w=256&f=avif' w={{lg:'100px',base:'150px'}}></Image>
             </Stack>
         </Box>
        
