@@ -24,17 +24,20 @@ function Signup() {
     const [showPassword, setShowPassword] = useState(false);
   const [email,setemail]=React.useState("");
   const [password,setpassword]=React.useState("")
-  const {isAuth,setAuth}=useContext(AuthContext)
+  const [first,setfirst]=React.useState("")
+  const {isAuth,setAuth,handlesignUp}=useContext(AuthContext)
   const navigate=useNavigate();
   const handlesignup=()=>{
     let  newobj ={Email:email,Password:password};
-    fetch("http://localhost:8080/cred",{
+    let user={first:{first}}
+    fetch("https://croc-database-1.vercel.app/cred",{
   method:"POST",
   headers: {
     "Content-Type": "application/json",
 },
 body: JSON.stringify(newobj)
  });
+ handlesignUp(user)
  navigate("/")
 
   }
@@ -63,7 +66,7 @@ body: JSON.stringify(newobj)
                 <Box>
                   <FormControl id="firstName" isRequired>
                     <FormLabel>First Name</FormLabel>
-                    <Input type="text" />
+                    <Input onChange={(e)=>setfirst(e.target.value)} type="text" />
                   </FormControl>
                 </Box>
                 <Box>

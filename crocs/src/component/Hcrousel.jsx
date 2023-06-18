@@ -87,8 +87,8 @@ function Hcrousel(){
         ]
       };
     return (
-       <Box className="container" w={{lg:"93%",sm:"87%"}} ml={{lg:'47px',sm:'33px'}} border='1px'>
-<div style={{width:"90%",marginLeft:"50px",}} className='Hcrousel'>
+       <Box className="container" w={{lg:"93%",sm:"87%",base:'100%'}} margin='auto' ml={{lg:'47px',sm:'33px'}} >
+<div style={{width:"90%"}} className='Hcrousel'>
            <Slider {...settings}>
 
     

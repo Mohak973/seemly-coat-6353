@@ -1,50 +1,77 @@
 import React from 'react'
-import {useState,useEffect} from "react"
-import { useParams,useNavigate } from "react-router-dom";
-import {Box,Stack,Image,Text,Button,Radio, RadioGroup} from "@chakra-ui/react"
+import {useState,useEffect,useContext} from "react"
+import { useParams,useNavigate, } from "react-router-dom";
+import {Box,Stack,Image,Text,Button,Radio, RadioGroup,Select} from "@chakra-ui/react"
+import {AuthContext} from "../Context/AuthContext"
+import "../Css/Hcrousel.css"
 function Singlepage() {
     const {id} =useParams();
+   const {authState,handlecart,handlesize}=useContext(AuthContext)
     const [detail,setdetail]=useState({})
+    const [isloading,setloading]=useState(true)
+    const [cartstate,setcartstate]=useState(false)
     const [value, setValue] = React.useState('5')
     const navigate=useNavigate()
     useEffect(()=>{
+      setloading(true)
      fetch(`https://croc-database.vercel.app/Women/${id}`).then((res)=>res.json()).then((res)=>{
         setdetail(res)
      })
+     setloading(false)
     },[])
-    function RadioExample() {
-       
-        return (
-          <RadioGroup onChange={setValue} value={value}>
-            <Stack direction='row'>
-              <Radio value='5'>5</Radio>
-              <Radio value='6'>6</Radio>
-              <Radio value='7'>7</Radio>
-            </Stack>
-          </RadioGroup>
-        )
-      }
+   
+    const handleaddtocart=(id)=>{
+      console.log(id)
+     handlecart(id)
+    //  console.log(authState.cart)  
+     
+       setcartstate(true)
+      
+    }
+    console.log(authState.cart)  
+    console.log(authState.size) 
+    const handleRadioChange = (value) => {
+      console.log(value)
+      // Update the state using the Context API
+    };
+   
     
+    if(isloading){
+      return <div>
+        <div class="loading">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+      </div>
+    }
   return (
-    <Stack direction='row' spacing='400px'>
-        <Box mb='30px' ml='80px' mt='30px'>
-          <Image src={detail.image} w='400px' boxShadow='rgba(0, 0, 0, 0.35) 0px 5px 15px' mb='10px'></Image>
+    <>
+    
+    <Stack direction='row' spacing={{lg:'400px',base:'40px'}} border='1px solid green' pr={{base:'30px'}}>
+        <Box mb='30px'ml={{lg:'80px',base:'30px'}} mt='30px' border='1px solid green'>
+          <Image src={detail.image} w={{lg:'400px',base:'600px'}} boxShadow='rgba(0, 0, 0, 0.35) 0px 5px 15px' mb='10px'></Image>
           <Text mb='30px'>Price-{detail.price}</Text>
           <Text maxW='300px'>{detail.detail}</Text>
         </Box>
-        <Box>
+        <Box marginRight={{base:'20px'}} border='1px ' w={{base:'250px'}} pr={{base:''}}>
             <Image src={detail.image} mb='10px'></Image>
             <Text mb='10px'>{detail.title}</Text>
             <Text mb='10px'>Sizes</Text>
-            <Stack direction='row' mb='50px'>
-                <RadioExample />
-            </Stack>
-            <Text mb='20px'>{`Size:${value}`}</Text>
-            <Button onClick={()=>navigate(`/Cartpage/${id}`)}>Add To Cart</Button>
+            
+            <Select placeholder='Select Size' onChange={(e)=>handlesize(e.target.value)}>
+             <option value='5'>5</option>
+             <option value='6'>6</option>
+             <option value='7'>7</option>
+</Select>
+            <Text mb='20px'>{`Size:${authState.size}`}</Text>
+            <Button onClick={()=>handleaddtocart(id)} isDisabled={cartstate}>{cartstate ? "Added To Cart":'Add To Cart'}</Button>
         </Box>
 
     </Stack>
-    
+    </>
   )
 }
 
