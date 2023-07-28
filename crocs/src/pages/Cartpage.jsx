@@ -87,18 +87,18 @@ function Cartpage() {
   
 
   return (
-    <Stack direction='row' spacing={{lg:'254',base:'100px'}} justifyContent='space-evenly' pr={{base:'20px'}} pl={{base:'20px'}}>
- <Box mb='100px' border='1px solid red' width='40%'>
+    <Stack direction={{base:'column',sm:'row',md:'row',lg:'row'}} ml={{base:'20px'}} spacing={{lg:'254',base:'50px'}} justifyContent='space-evenly' pr={{base:'20px'}} pl={{base:'20px'}}>
+ <Box mb='100px'  w={{base:'80%'}}>
       
       {filteredData.map((el) => (
-        <Box border='1px solid red'  justifyItems='center'>
-          <Image src={el.image} border='1px solid green'></Image>
+        <Box   justifyItems='center' justifyContent={{base:"center"}} ml={{base:'40px'}} >
+          <Image src={el.image} boxSize={{base:'200px'}} ml={{base:'15px'}} ></Image>
           <Text>{el.title}</Text>
           <Text>Price-{el.price*el.quantity}</Text>
           <Stack direction='row'>
-            <Button onClick={() => handlequan(el.id, -1)} isDisabled={el.quantity===1}>-</Button>
-            <Button>{el.quantity}</Button>
-            <Button onClick={() => handlequan(el.id, +1)}>+</Button>
+            <Button onClick={() => handlequan(el.id, -1)} ml={{base:'40px'}}  isDisabled={el.quantity===1}>-</Button>
+            <Button>{el.quantity} </Button>
+            <Button onClick={() => handlequan(el.id, +1)} >+</Button>
           </Stack>
           <Button onClick={()=>handleremove(el.id)}>Remove</Button> 
           <Select placeholder='Select Size'  onChange={(e) => handlesize(e.target.value)}>
@@ -111,7 +111,7 @@ function Cartpage() {
     )}
     <Text>Total :  {filteredData.map(el=>el.price*el.quantity).reduce((total,value)=>total+value,0)}</Text>
   </Box>
-  <Box textAlign='center' justifyContent='center' justifyItems='center' border='1px solid green' width='40%'>
+  <Box textAlign='center' justifyContent='center' justifyItems='center'  width={{base:'90%'}}>
     <Heading>Fill in The details</Heading>
 <FormControl isRequired isInvalid={isError}>
 <FormLabel mb='5px'>First name</FormLabel>

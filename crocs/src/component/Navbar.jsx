@@ -28,7 +28,7 @@ import {Image,
 import { jsx } from '@emotion/react';
 
 function Navbar() {
-  const {authState,signup}=useContext(AuthContext)
+  const {authState,signup,logoutUser}=useContext(AuthContext)
   const {cart}=authState
   let isAuth=JSON.parse(localStorage.getItem("isAuth"))
   let Email=JSON.parse(localStorage.getItem("email"))
@@ -43,7 +43,7 @@ function Navbar() {
       }
     }
     return (
-        <Box w={{lg:'100%',base:'100%'}} border='1px'>
+        <Box w={{lg:'100%',base:'100%'}} >
           <Flex
             bg={useColorModeValue('white', 'gray.800')}
             color={useColorModeValue('gray.600', 'white')}
@@ -75,6 +75,7 @@ function Navbar() {
                 Logo
               </Text> */}
               <Link href='/'>
+                
               <Image   textAlign={useBreakpointValue({ base: 'center', md: 'left' })} w="180px" src="https://www.crocs.com/on/demandware.static/Sites-crocs_us-Site/-/default/dw3ce21b1f/images/logo-no-tag.svg"/>
               </Link>
               
@@ -83,27 +84,32 @@ function Navbar() {
                 <DesktopNav />
               </Flex>
             </Flex>
+            
             {isAuth ?<Stack direction={'row'}><Text>{
               `Hello, ${Email}` }
               </Text>
               <Box><Link href='/Cartpage'> <Image  width='30px' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXMe8zNDZDDQLi_l0tU0wCCHrstXIQBpDh7TM-_f-8&s"></Image></Link></Box>
+              <Button
+                 onClick={logoutUser}
+                   as={'a'}
+                   fontSize={'sm'}
+                   fontWeight={400}
+                   variant={'link'}
+                   
+                   >
+                   Logout
+                 </Button>
               </Stack>:  <Stack
               flex={{ base: 1, md: 0 }}
               justify={'flex-end'}
               direction={'row'}
               spacing={6}>
-              <Button
-              onClick={()=>navigate("/Signin")}
-                as={'a'}
-                fontSize={'sm'}
-                fontWeight={400}
-                variant={'link'}
-                >
-                Sign In
-              </Button>
+                <Button fontSize={'sm'} onClick={()=>navigate("/Signin")}>Signin</Button>
+                
+              
               <Button
               onClick={()=>navigate("/Signup")}
-                display={{ base: 'none', md: 'inline-flex' }}
+                display={{  md: 'inline-flex' }}
                 fontSize={'sm'}
                 fontWeight={600}
                 color={'white'}
@@ -115,7 +121,6 @@ function Navbar() {
                 Sign Up
               </Button>
               <Button onClick={gocart}> <Image  width='30px' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXMe8zNDZDDQLi_l0tU0wCCHrstXIQBpDh7TM-_f-8&s"></Image></Button>
-             
              
             </Stack>}
 
