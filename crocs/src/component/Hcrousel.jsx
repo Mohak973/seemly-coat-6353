@@ -1,10 +1,10 @@
 import React from "react";
 import  { Component } from "react";
 import Slider from "react-slick";
+import "../Css/Hcrousel.css"
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import "../Css/Hcrousel.css"
-import {Link,Box,SimpleGrid} from "@chakra-ui/react"
+import {Link,Box,SimpleGrid,Image} from "@chakra-ui/react"
 
 const cards = [
     {
@@ -87,24 +87,22 @@ function Hcrousel(){
         ]
       };
     return (
-       <Box className="container" w={{lg:"93%",sm:"87%",base:'100%'}} margin='auto' ml={{lg:'47px',sm:'33px'}} >
-<div style={{width:"90%"}} className='Hcrousel'>
-           <Slider {...settings}>
-
-    
-          
+       <Box className="container" w={{lg:"93%",sm:"87%",base:'99%'}}  margin='auto' ml={{lg:'47px',sm:'33px',base:'0px'}} >
+<Box  w={{base:'87%'}}   className='Hcrousel'>
+           <Slider {...settings} >
            {cards.map((el)=>(
             <Link href="/Women">
-                 <SimpleGrid w={{lg:'100%'}}>
-                <img src={el.image} alt={el.text} style={{width:"300px"}}/>
+                 <SimpleGrid w={{lg:'100%',base:'100%'}} justifyContent='center'>
+                <Image src={el.image} alt={el.text} />
                 <h1>{el.title}</h1>
                 <p>{el.text}</p>
                 </SimpleGrid>
             </Link>
            
            ))}
+
             </Slider>
-        </div>
+        </Box>
         </Box>
        
         

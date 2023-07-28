@@ -8,8 +8,8 @@ function Homepage() {
     'https://static.pxlecdn.com/photos/415402355/original/f73bc06a1a50f10ab397.jpg','https://static.pxlecdn.com/photos/467402789/original/2da0d835f8ef0d362c4f.jpg','https://static.pxlecdn.com/photos/418974574/original/8eab0ed70f41f5999fd1.jpg']
 
       return (
-   <Box margin='auto' width={{base:'100%',md:'100%'}} border='3px solid red'>
-      <Box position='relative'  backgroundColor='#A954B5' w={{sm:'140%',md:"20%",lg:'100%'}} margin='0px' border='1px solid red'>
+   <Box margin='auto' width={{base:'100%',md:'100%'}} >
+      <Box position='relative'  backgroundColor='#A954B5' w={{sm:'140%',md:"20%",lg:'100%'}} margin='0px' >
         <Box pos='absolute' top={{sm:'135px',md:'210px',lg:'350px'}} left={{sm:"20px",md:"80px",lg:'145px'}}>
         
        <Button size={{sm:"sm",lg:'lg'}}>Shop Platform Styled</Button>
@@ -24,7 +24,7 @@ function Homepage() {
         <Button _hover={{color:"white",backgroundColor:"black"}}>SHOP JIBBIZ'S</Button>
       </SimpleGrid>
 
-      <Box border="1px" ml="40px" mr="40px" mb='100px' mt='30px' pos='relative'>
+      <Box  ml="40px" mr="40px" mb='100px' mt='30px' pos='relative'>
         <Link>
            <Image w="100%"  src='https://images.unsplash.com/photo-1528701800487-ba01fea498c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'></Image>
            <Text pos="absolute" bottom='100px' left='50px' fontSize='2xl' color='blue.400'>Download The App,For early Access</Text>
@@ -34,13 +34,13 @@ function Homepage() {
       <Hcrousel />
 
       </Box>
-      <Box marginBottom='30px' border="2px solid yellow" margin='auto' width={{sm:'90%',md:'90%',lg:'100%'}} >
+      <Box marginBottom='30px'  margin='auto' width={{sm:'90%',md:'90%',lg:'100%'}} >
         <Link>
         <Image src="https://i.ibb.co/H74tsGB/Screenshot-20230120-195833.png"  w={{lg:"93%",sm:"87%",md:'70%'}}  ml={{lg:"50px",sm:'40px'}}></Image>
         </Link>
         
       </Box>
-      <Box border="2px solid yellow" mb='30px' mt='30px'>
+      <Box  mb='30px' mt='30px'>
          <Image src='https://i.ibb.co/KGTsD4t/Screenshot-20230120-203359.png' w={{lg:"93%",sm:"87%"}} ml={{lg:"50px",sm:'40px'}}></Image>
       </Box>
           <SimpleGrid gridTemplateColumns={{lg:"repeat(4,1fr)",sm:"repeat(1,1fr)"}}  mb='30px' ml={{lg:"54px",sm:'100px',base:'70px'}} gap='10px'>

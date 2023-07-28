@@ -32,9 +32,9 @@ import {Button,Input,useDisclosure,
   
     return (
       <>
-        <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
+        {/* <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
          Style +
-        </Button>
+        </Button> */}
         <Drawer
           isOpen={isOpen}
           placement='right'

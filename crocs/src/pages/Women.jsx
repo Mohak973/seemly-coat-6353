@@ -22,7 +22,7 @@ function Women() {
        setloading(true)
         Getdata()
         setloading(false)
-    },[])
+    },[load,sort])
 
     const handlelth=()=>{
        data.sort((a,b)=>a.price-b.price)
@@ -60,8 +60,8 @@ function Women() {
                 
                   {authState.data.map((el)=>(
                       <NavLink to={`/Women/${el.id}`}>
-                       <Box  h='300px' w={{lg:'250px',base:'215px'}} ml={{lg:'25px'}} mb='30px' boxShadow='rgba(0, 0, 0, 0.35) 0px 5px 15px'>
-                          <Image src={el.image} ml='35px'></Image>
+                       <Box  h='300px' w={{lg:'250px',base:'180px'}} ml={{lg:'25px'}} mb='30px' boxShadow='rgba(0, 0, 0, 0.35) 0px 5px 15px'>
+                          <Image src={el.image} boxSize={{base:'120px'}} ml='35px'></Image>
                           <Text>{el.title}</Text>
                           <Text mb='10px'>{el.price}</Text>
                           

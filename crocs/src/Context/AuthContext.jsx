@@ -24,19 +24,21 @@ const AuthContextProvider=({children})=>{
           });
     }
     
-    const logoutUser=()=>{
-        setState({
-            ...state,
-            isAuth: false,
-            
-          });
-    }
+    
     const Getdata=()=>{
         fetch("https://croc-database-1.vercel.app/Women").then((res)=>res.json().then((res)=>{
           setState({...state,data:res})
         }))
     }
-    
+    const logoutUser=()=>{
+      let isAuth=JSON.parse(localStorage.getItem("isAuth"))
+      setState({
+          ...state,
+          isAuth: false,
+          
+        });
+        localStorage.setItem("isAuth",JSON.stringify(isAuth=false));
+  }
     const handlecart=(id)=>{
 
         const MCart = JSON.parse(localStorage.getItem("Mcart") || "[]");
